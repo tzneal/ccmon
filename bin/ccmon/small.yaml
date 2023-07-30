@@ -1,0 +1,16 @@
+name: large
+duration: 1h
+repeatAfter: 5m
+nodeSelector: karpenter.sh/provisioner-name
+deployments:
+  - name: inflate
+    cpu: 1
+    memory: 1G
+events:
+  - time: 0s
+    deployment: inflate
+    replicas: 1000
+
+  - time: 5m
+    deployment: inflate
+    replicas: 750
